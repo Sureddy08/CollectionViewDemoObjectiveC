@@ -13,6 +13,8 @@
 @property (weak, nonatomic) IBOutlet UIImageView *imageView;
 @property (weak, nonatomic) IBOutlet GradientView *gradientView;
 @property (weak, nonatomic) IBOutlet UILabel *companyNameLabel;
+@property (assign,nonatomic) BOOL editing;
+@property (weak, nonatomic) IBOutlet UIImageView *checkImageView;
 
 
 @end

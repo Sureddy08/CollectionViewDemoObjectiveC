@@ -8,7 +8,9 @@
 
 #import "AppsDataSource.h"
 #import "App.h"
-
+@interface AppsDataSource()
+-(int)absoluteIndexForIndexPath:(NSIndexPath *)indexPath;
+@end
 @implementation AppsDataSource
 
 -(instancetype)init{
@@ -37,5 +39,26 @@
     }];
     return [NSIndexPath indexPathForItem:item inSection:0];
 }
+
+-(void)deleteItemsAtIndexPaths:(NSArray *)indexPaths{
+    NSMutableArray *indexes = [[NSMutableArray alloc] init];
+    for(NSIndexPath *indexPath in indexPaths){
+        [indexes addObject:[NSNumber numberWithInt:[self absoluteIndexForIndexPath:indexPath]]];
+    }
+    __block NSMutableArray *apps = [[NSMutableArray alloc] init];
+    [self.favApps enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        if(![indexes containsObject:[NSNumber numberWithUnsignedInteger:idx]]){
+            [apps addObject:(App *)obj];
+        }
+    }];
+    self.favApps = apps;
+}
+
+-(int)absoluteIndexForIndexPath:(NSIndexPath *)indexPath{
+    int index = 0;
+    index += indexPath.item;
+    return index;
+}
+
 
 @end

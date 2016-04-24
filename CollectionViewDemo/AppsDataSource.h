@@ -11,4 +11,5 @@
 @interface AppsDataSource : NSObject
 @property (strong) NSMutableArray *favApps;
 -(NSIndexPath *)indexPathForNewRandomApp;
+-(void)deleteItemsAtIndexPaths:(NSArray *)indexPaths;
 @end

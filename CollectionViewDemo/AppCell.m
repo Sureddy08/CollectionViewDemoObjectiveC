@@ -10,4 +10,24 @@
 
 @implementation AppCell
 
+-(void)awakeFromNib{
+    [super awakeFromNib];
+    _checkImageView.layer.cornerRadius = 10.0;
+}
+
+-(void)setEditing:(BOOL)editing{
+    self->_editing = editing;
+    _companyNameLabel.hidden = editing;
+    _checkImageView.hidden = !editing;
+}
+
+-(void)setSelected:(BOOL)selected{
+    [super setSelected:selected];
+    if (self.editing){
+        _checkImageView.image = [UIImage imageNamed:selected ? @"Checked" : @"Unchecked"];
+    }
+}
+
+
+
 @end

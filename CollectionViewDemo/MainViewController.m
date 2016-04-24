@@ -20,7 +20,25 @@
 -(void)viewDidLoad{
     [super viewDidLoad];
     self.appsDataSource = [[AppsDataSource alloc] init];
+    self.navigationController.toolbarHidden = true;
+    self.navigationItem.leftBarButtonItem = self.editButtonItem;
     
+}
+
+-(void)setEditing:(BOOL)editing animated:(BOOL)animated{
+    [super setEditing:editing animated:animated];
+
+    self.collectionView.allowsMultipleSelection = editing;
+    NSArray *indexPaths = [self.collectionView indexPathsForVisibleItems];
+    for(NSIndexPath *indexpath in indexPaths){
+        [self.collectionView deselectItemAtIndexPath:indexpath animated:false];
+        AppCell *cell = (AppCell *)[self.collectionView cellForItemAtIndexPath:indexpath];
+        cell.editing = editing;
+    }
+    
+    if (!editing){
+        [self.navigationController setToolbarHidden:true animated:animated];
+    }
 }
 - (IBAction)addButtonTapped:(UIBarButtonItem *)sender {
     NSIndexPath *indexPath = [self.appsDataSource indexPathForNewRandomApp];
@@ -33,6 +51,17 @@
         layout.appearingItemIndexPath = nil;
     }];
     
+}
+- (IBAction)deleteButtonTapped:(UIBarButtonItem *)sender {
+    NSMutableArray *indexPaths = [[self.collectionView indexPathsForSelectedItems] mutableCopy];
+    AppsFlowLayout *layout = (AppsFlowLayout *)self.collectionViewLayout;
+    layout.disappearingItemIndexpaths = indexPaths;
+    [self.appsDataSource deleteItemsAtIndexPaths:indexPaths];
+    [UIView animateWithDuration:0.7 delay:0.0 options:UIViewAnimationOptionCurveEaseIn animations:^{
+        [self.collectionView deleteItemsAtIndexPaths:indexPaths];
+    }completion:^(BOOL finished) {
+        layout.disappearingItemIndexpaths = nil;
+    }];
 }
 
 -(NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView{
@@ -48,10 +77,28 @@
     App *app = self.appsDataSource.favApps[indexPath.row];
     cell.imageView.image = app.image;
     cell.companyNameLabel.text = app.name;
+    cell.editing = self.editing;
     return cell;
 
 }
 
+-(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
+    if(self.editing){
+        [self.navigationController setToolbarHidden:false animated:true];
+    }
+    else{
+        [self collectionView:collectionView didDeselectItemAtIndexPath:indexPath];
+    }
+}
+
+-(void)collectionView:(UICollectionView *)collectionView didDeselectItemAtIndexPath:(NSIndexPath *)indexPath{
+    if(self.editing){
+        if(collectionView.indexPathsForSelectedItems.count == 0){
+            [self.navigationController setToolbarHidden:true animated:true];
+        }
+    }
+
+}
 - (CGSize)collectionView:(UICollectionView *)collectionView
                   layout:(UICollectionViewLayout *)collectionViewLayout
   sizeForItemAtIndexPath:(NSIndexPath *)indexPath

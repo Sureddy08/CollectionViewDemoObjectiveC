@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface MainViewController : UICollectionViewController<UICollectionViewDataSource,UICollectionViewDelegateFlowLayout>
+@interface MainViewController : UICollectionViewController<UICollectionViewDataSource,UICollectionViewDelegate,UICollectionViewDelegateFlowLayout>
 
 
 
