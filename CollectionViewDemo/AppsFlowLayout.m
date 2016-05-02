@@ -15,6 +15,7 @@
     NSIndexPath *indexPath = self.appearingItemIndexPath;
     if(attributes != nil){
         if(indexPath == itemIndexPath){
+            CGRectGetWidth(self.collectionView.frame);
             attributes.alpha = 1.0;
             attributes.center = CGPointMake(CGRectGetWidth(self.collectionView.frame) - 23.5, -24.5);
             attributes.transform = CGAffineTransformMakeScale(0.15, 0.15);

@@ -35,7 +35,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="0.0" id="hdK-1D-HTw" customClass="AppsFlowLayout">
+                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="hdK-1D-HTw" customClass="AppsFlowLayout">
                             <size key="itemSize" width="200" height="200"/>
                             <size key="headerReferenceSize" width="0.0" height="0.0"/>
                             <size key="footerReferenceSize" width="0.0" height="0.0"/>
@@ -69,31 +69,27 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Unchecked" translatesAutoresizingMaskIntoConstraints="NO" id="1db-aB-MWi">
-                                            <rect key="frame" x="89" y="174" width="22" height="22"/>
+                                            <rect key="frame" x="170" y="8" width="22" height="22"/>
                                             <color key="backgroundColor" red="0.0078431372550000003" green="0.53333333329999999" blue="0.81960784310000001" alpha="1" colorSpace="calibratedRGB"/>
-                                            <constraints>
-                                                <constraint firstAttribute="height" constant="22" id="MfU-OQ-vSu"/>
-                                                <constraint firstAttribute="width" constant="22" id="kOI-iW-I0p"/>
-                                            </constraints>
                                         </imageView>
                                     </subviews>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 </view>
                                 <constraints>
-                                    <constraint firstItem="voR-Mg-n2b" firstAttribute="centerY" secondItem="1db-aB-MWi" secondAttribute="centerY" id="4QC-jT-jHB"/>
                                     <constraint firstAttribute="bottom" secondItem="e6t-Jo-Z83" secondAttribute="bottom" constant="30" id="Esb-Ax-dV5"/>
                                     <constraint firstItem="e6t-Jo-Z83" firstAttribute="leading" secondItem="31V-BL-ybb" secondAttribute="leading" id="F0y-a2-YNW"/>
                                     <constraint firstItem="voR-Mg-n2b" firstAttribute="trailing" secondItem="thC-QZ-Hg6" secondAttribute="trailing" id="HBQ-iH-Ujk"/>
                                     <constraint firstItem="e6t-Jo-Z83" firstAttribute="top" secondItem="31V-BL-ybb" secondAttribute="top" id="NeX-GM-48F"/>
-                                    <constraint firstItem="1db-aB-MWi" firstAttribute="bottom" secondItem="31V-BL-ybb" secondAttribute="bottomMargin" constant="4" id="SIY-1w-4Na"/>
+                                    <constraint firstAttribute="bottom" secondItem="voR-Mg-n2b" secondAttribute="bottom" id="QsD-fb-TRC"/>
                                     <constraint firstItem="1db-aB-MWi" firstAttribute="top" secondItem="e6t-Jo-Z83" secondAttribute="bottom" id="Sny-nC-pYr"/>
                                     <constraint firstItem="voR-Mg-n2b" firstAttribute="leading" secondItem="thC-QZ-Hg6" secondAttribute="leading" id="e36-De-KV8"/>
-                                    <constraint firstItem="1db-aB-MWi" firstAttribute="centerX" secondItem="31V-BL-ybb" secondAttribute="centerX" id="gbz-Nb-vuu"/>
                                     <constraint firstItem="thC-QZ-Hg6" firstAttribute="bottom" secondItem="e6t-Jo-Z83" secondAttribute="bottom" constant="30" id="ho6-Sn-VkY"/>
+                                    <constraint firstItem="1db-aB-MWi" firstAttribute="top" secondItem="31V-BL-ybb" secondAttribute="topMargin" id="jpB-O8-fJa"/>
                                     <constraint firstItem="thC-QZ-Hg6" firstAttribute="leading" secondItem="e6t-Jo-Z83" secondAttribute="leading" id="lBX-aL-WYn"/>
                                     <constraint firstItem="thC-QZ-Hg6" firstAttribute="trailing" secondItem="e6t-Jo-Z83" secondAttribute="trailing" id="mdl-9m-VNT"/>
                                     <constraint firstAttribute="trailing" secondItem="e6t-Jo-Z83" secondAttribute="trailing" id="oCL-qS-FDq"/>
                                     <constraint firstItem="voR-Mg-n2b" firstAttribute="top" secondItem="thC-QZ-Hg6" secondAttribute="top" id="pqn-SA-V8u"/>
+                                    <constraint firstItem="1db-aB-MWi" firstAttribute="trailing" secondItem="31V-BL-ybb" secondAttribute="trailingMargin" id="yT6-CY-5yU"/>
                                 </constraints>
                                 <variation key="default">
                                     <mask key="constraints">

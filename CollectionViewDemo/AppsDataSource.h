@@ -12,4 +12,5 @@
 @property (strong) NSMutableArray *favApps;
 -(NSIndexPath *)indexPathForNewRandomApp;
 -(void)deleteItemsAtIndexPaths:(NSArray *)indexPaths;
+-(void)moveAppAtIndexPath:(NSIndexPath *)indePath toIndexPath:(NSIndexPath *)newIndexPath;
 @end

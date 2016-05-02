@@ -8,8 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
-@interface MainViewController : UICollectionViewController<UICollectionViewDataSource,UICollectionViewDelegate,UICollectionViewDelegateFlowLayout>
+@interface MainViewController : UICollectionViewController<UICollectionViewDataSource,UICollectionViewDelegate>
 
-
+-(void)handleLongPress:(UILongPressGestureRecognizer *)recognizer;
 
 @end

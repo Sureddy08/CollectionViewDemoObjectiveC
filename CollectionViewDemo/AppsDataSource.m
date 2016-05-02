@@ -54,11 +54,21 @@
     self.favApps = apps;
 }
 
+-(void)moveAppAtIndexPath:(NSIndexPath *)indexPath toIndexPath:(NSIndexPath *)newIndexPath{
+    if(indexPath == newIndexPath){
+        return;
+    }
+    int index = [self absoluteIndexForIndexPath:indexPath];
+    App *app = self.favApps[index];
+    int newIndex = [self absoluteIndexForIndexPath:newIndexPath];
+    [_favApps removeObjectAtIndex:index];
+    [_favApps insertObject:app atIndex:newIndex];
+}
+
 -(int)absoluteIndexForIndexPath:(NSIndexPath *)indexPath{
     int index = 0;
     index += indexPath.item;
     return index;
 }
-
 
 @end
